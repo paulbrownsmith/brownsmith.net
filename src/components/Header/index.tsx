@@ -17,11 +17,27 @@ const Header = () => {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const getMenuStatus = () => {
+    if (
+      pathname === "/portfolio" ||
+      pathname === "/portfolio/user-fiendly-cross-domain-ui" ||
+      pathname === "/portfolio/material-ui" ||
+      pathname === "/portfolio/accessibility-in-gov-uk" ||
+      pathname === "/portfolio/user-testing-waitrose" ||
+      pathname === "/portfolio/tailwindcss-insights" ||
+      pathname === "/portfolio/imported-files-ui"
+    ) {
+      return "2px solid #fff";
+    }
+    return false;
   };
 
   return (
@@ -45,9 +61,11 @@ const Header = () => {
           src="/images/mountain.jpeg"
         />
         <Box component="h1" sx={{ mt: 0 }}>
+          {/* @ts-ignore:next-line */}
           <Typography component="span" variant="h4">
             Paul Brownsmith -{" "}
           </Typography>
+          {/* @ts-ignore:next-line */}
           <Typography
             component="span"
             variant="h4"
@@ -103,7 +121,11 @@ const Header = () => {
                   <Button
                     component={Link}
                     to={"/portfolio"}
-                    sx={{ my: 0, display: "block", width: "200px" }}
+                    sx={{
+                      my: 0,
+                      display: "block",
+                      width: "200px",
+                    }}
                   >
                     Portfolio
                   </Button>
@@ -140,14 +162,14 @@ const Header = () => {
               <Button
                 component={Link}
                 to={"/portfolio"}
+                // @ts-ignore:next-line
                 sx={{
                   textAlign: "center",
                   m: 0,
                   color: "white",
                   display: "block",
                   borderRadius: 0,
-                  borderBottom:
-                    pathname === "/portfolio" ? "2px solid #fff" : "0",
+                  borderBottom: getMenuStatus(),
                 }}
               >
                 Portfolio
@@ -198,6 +220,7 @@ const Header = () => {
                 open={false}
               >
                 <MenuItem onClick={() => {}}>
+                  {/* @ts-ignore:next-line */}
                   <Typography sx={{ textAlign: "center" }}>setting</Typography>
                 </MenuItem>
               </Menu>

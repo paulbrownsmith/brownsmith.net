@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-function Footer() {
+const Footer = () => {
   return (
     <Box
       sx={{
@@ -35,6 +35,6 @@ function Footer() {
       </Typography>
     </Box>
   );
-}
+};
 
 export default Footer;
